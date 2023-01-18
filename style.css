@@ -5,15 +5,6 @@ body{
   overflow-x: hidden;
 }
 
-/*.logo{
-  margin: 2rem;
-  color:black;
-  font-size: 25px;
-}
-.log{
-  color:#05981d;
-}*/
-
 
 .primary-header img{
   margin: 1.2rem;
@@ -24,53 +15,11 @@ body{
 
 
 .primary-header {
-/*  display: flex;*/
   align-items: center;
   justify-content: space-between;
-/*  background: black;*/
-  
-}
-
-
-.downloadbut{
-  font-weight: bold;
-  font-size: 15px;
-  font-family: Monaco;
-  background-color: transparent;
-  border: none;
-  text-decoration: none;
-}
-
-.downloadbut:hover{
- color: #05981d;
-  transition: 0.3s;
-
-}
-
-
-.downloadlink{
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 2;
-}
-
-.downloadlink a{
-   color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-
-}
-
-.downloadlink a:hover{
-  background-color: #ddd;
-
-}
-.download:hover .downloadlink{
-  display: block;
+  z-index:10000;
+  position: relative;
+/*  margin-right: 40px;*/
 
 }
 
@@ -91,6 +40,7 @@ body{
   padding: 0;
    background: hsla(0 0% 100% / 0.1);
   backdrop-filter: blur(0.5rem);
+  z-index: 1100;
 }
 
 @supports(backdrop-filter: blur(1rem)) {
@@ -104,33 +54,133 @@ body{
 #primary-navigation{
   align-items: center;
   justify-content: space-between;
+  
   }
 
 #primary-navigation a{
     text-decoration: none;
+  
   }
 
 #primary-navigation a > [aria-hidden ="true"]{
     font-weight: 700;
     margin-inline-end: 0.75em;
   }
+  nav ul{
+ 
+    list-style: none;
+  }
+ 
 
-nav ul li{
+nav ul li a{
+/*  text-decoration:none; */
   list-style-type: none;
   display: inline-block;
   padding:5px 10px;
-
 }
-nav ul li a{
+nav ul li  a{
   color:black;
   text-decoration: none;
   font-weight: bold;
   margin-inline-end: 0.75em;
+  
 }
 nav ul li a:hover{
   color:#05981d;
   transition: 0.3s;
+   
 }
+
+.myDropdown{
+  display: none;
+ 
+}
+
+
+nav ul li .myDropdown li{
+  width:150px;
+  padding: 10px;
+  color:black;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  z-index:1100;
+  }
+
+ nav ul li button {
+  border: none;
+  background: none;
+ }
+
+  nav ul li:hover button{
+    color: #05981d;
+    cursor: pointer;
+ }
+
+  nav ul li:hover .myDropdown li{
+    color: green;
+    cursor: pointer;
+  }
+
+ 
+  .myDropdown2{
+    display: none;
+}
+
+
+
+#outerDropdown.show {
+    display: block;
+    position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1100;
+  margin-left: -150px;
+  overflow-y: scroll;
+ /* width: 200px;
+  height: 250px;*/
+  max-width: 200px;
+  max-height: 300px;
+}
+
+#outerDropdown, #innerDropdown1, #innerDropdown2{
+position: relative;
+overflow-y: scroll;
+z-index: 1200;
+}
+
+  #outerDropdown.show, #outerDropdown1.show {
+    display: block;
+    /* Additional styles to make the dropdown menu visible */
+     
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1100;
+  padding: 10px 15px;
+  margin-left: -140px;
+}
+
+#innerDropdown1.show, #innerDropdown2.show, #outerDropdown1.show{
+    display: block;
+    /* Additional styles to make the dropdown menu visible */
+    position: absolute;
+    padding: 10px 15px;
+    margin-top:30px;
+    margin-left: -120px;
+    z-index: 1100;
+}
+
+#outerDropdown,  #innerDropdown1, #innerDropdown2, #outerDropdown1{
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 
  
 @media (max-width: 35em) {
@@ -144,6 +194,8 @@ nav ul li a:hover{
   
   transform: translateX(100%);
   transition: transform 350ms ease-out;
+   
+    
 
   }
 
@@ -181,11 +233,19 @@ nav ul li a:hover{
   right: 2rem;
   }
 
+   .show {
+  display: block;
 }
 
+}
+
+.slide-show{
+position: relative;
+}
     .main-carousel {
       width: 75%;
       margin: 0 auto;
+     
      
     }
     .carousel-cell {
